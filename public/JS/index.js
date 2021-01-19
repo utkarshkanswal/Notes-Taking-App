@@ -25,7 +25,7 @@ function showNotes() {
     }
     let html = "";
     notesObj.forEach(function (element, index) {
-        html += ` <div class="my-2 mx-2 card" style="width: 18rem;">
+        html += ` <div class="card" style="width: 18rem; background-color: rgb(188, 147, 212); margin: 20px; margin-bottom:40px">
         <div class="card-body">
             <h5 class="card-title">Note ${index+1}</h5>
             <p class="card-text">${element}</p>
@@ -34,8 +34,10 @@ function showNotes() {
         </div>`;
     });
     let notesElem = document.getElementById('notes');
-    if (notes.length != 0) {
+    if (notesObj.length != 0) {
         notesElem.innerHTML = html;
+    } else {
+        notesElem.innerHTML = `<h4 style="margin-top: 10px; margin-bottom: 20px;">Nothing to show here please add Some Notes</h4>`;
     }
 }
 
