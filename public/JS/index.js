@@ -15,6 +15,14 @@ addBtn.addEventListener("click", function (e) {
     showNotes();
 });
 
+function inWords(num) {
+    var a = ['', 'One', 'Two', 'Three', 'Four', 'five', 'six', 'seven ', 'eight ', 'nine ', 'ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+    var b = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+    let str = a[num];
+    return str;
+}
+
 function showNotes() {
     let notes = localStorage.getItem("notes");
     let notesObj = [];
@@ -25,13 +33,19 @@ function showNotes() {
     }
     let html = "";
     notesObj.forEach(function (element, index) {
-        html += ` <div class="card" style="width: 18rem; background-color: rgb(188, 147, 212); margin: 20px; margin-bottom:40px">
-        <div class="card-body">
-            <h5 class="card-title">Note ${index+1}</h5>
-            <p class="card-text">${element}</p>
-            <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger">Delete</button>
+        let num = inWords(index + 1);
+        html += ` <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading${num}">
+          <button class="accordion-button collapsed" style=" background-color:rgb(141, 193, 223); color:black;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${num}" aria-expanded="false" aria-controls="flush-collapse${num}">
+            Note ${index+1}
+          </button>
+        </h2>
+        <div id="flush-collapse${num}" class="accordion-collapse collapse" aria-labelledby="flush-heading${num}" data-bs-parent="#accordionFlushExample" style="">
+          <div class="accordion-body">${element}</div>
+          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger dbutton">Delete</button>
         </div>
-        </div>`;
+        
+      </div>`;
     });
     let notesElem = document.getElementById('notes');
     if (notesObj.length != 0) {
