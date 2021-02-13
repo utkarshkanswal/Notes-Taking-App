@@ -1,6 +1,8 @@
-# Notes-Taking-App
-This is a Simple notes taking app.
+# Notes Taking App
 
-# How to Use
+<a href="https://ibb.co/dPfMHjj"><img src="https://i.ibb.co/8rmsQNN/Notes.jpg" alt="Notes" border="0"></a>
 
-1.Use this link to open https://utkarshkanswal.github.io/Notes-Taking-App/
+## How to Use?
+
+
+**Link To Use it [Click Here](https://utkarshkanswal.github.io/Notes-Taking-App/)**
